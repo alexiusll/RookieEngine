@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/RookieEngine/Debug
+/RookieEngine/x64/Debug
+/RookieEngine/libs/assimp/assimpd.exp
+/RookieEngine/libs/assimp/unit.exp
+/RookieEngine/libs/assimp/unit.lib
+/x64/Debug
