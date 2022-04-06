@@ -3,26 +3,91 @@
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\components\camera.cpp" />
-    <ClCompile Include="source\shader\shader_util.cpp" />
+    <ClCompile Include="source\shader\shader.cpp" />
     <ClCompile Include="source\stdafx.cpp" />
     <ClCompile Include="source\application\application.cpp" />
     <ClCompile Include="source\window\window.cpp" />
     <ClCompile Include="source\render\opengl_context.cpp" />
     <ClCompile Include="source\scene\sample_scene.cpp" />
-    <ClCompile Include="source\3rdparty\glad.c" />
+    <ClCompile Include="source\components\Plane.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexIndexBuffer.cpp" />
+    <ClCompile Include="source\ui\ui_context.cpp" />
+    <ClCompile Include="source\ui\textPanel.cpp" />
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_demo.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_draw.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\backends\imgui_impl_glfw.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\backends\imgui_impl_opengl3.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_tables.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_widgets.cpp">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\glad.c">
+      <Filter>3rdParty</Filter>
+    </ClCompile>
+    <ClCompile Include="source\render\OpenGL_FrameBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\components\camera.h" />
-    <ClInclude Include="source\shader\shader_util.h" />
+    <ClInclude Include="source\shader\shader.h" />
     <ClInclude Include="source\stdafx.h" />
     <ClInclude Include="source\application\application.h" />
     <ClInclude Include="source\window\window.h" />
     <ClInclude Include="source\render\opengl_context.h" />
     <ClInclude Include="source\scene\sample_scene.h" />
     <ClInclude Include="source\window\Iwindow.h" />
+    <ClInclude Include="source\scene\IScene.h" />
+    <ClInclude Include="source\components\IComponent.h" />
+    <ClInclude Include="source\components\Plane.h" />
+    <ClInclude Include="source\render\OpenGL_VertexIndexBuffer.h" />
+    <ClInclude Include="source\ui\ui_context.h" />
+    <ClInclude Include="source\ui\textPanel.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imconfig.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\imgui.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_glfw.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_opengl3.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\imgui_internal.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_rectpack.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_textedit.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_truetype.h">
+      <Filter>3rdParty</Filter>
+    </ClInclude>
+    <ClInclude Include="source\render\OpenGL_FrameBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source\shader\shaders\first.vert" />
     <None Include="source\shader\shaders\first.frag" />
+    <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="3rdParty">
+      <UniqueIdentifier>{f10e7bf0-6ce1-4b6f-b957-e0e79f55d465}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

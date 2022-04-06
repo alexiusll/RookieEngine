@@ -22,28 +22,70 @@
     <ClCompile Include="source\3rdparty\glad.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\backends\imgui_impl_glfw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\backends\imgui_impl_opengl3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_tables.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\3rdparty\imgui-docking\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="source\application\application.cpp" />
     <ClCompile Include="source\components\camera.cpp" />
+    <ClCompile Include="source\components\Plane.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\render\opengl_context.cpp" />
+    <ClCompile Include="source\render\OpenGL_FrameBuffer.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexIndexBuffer.cpp" />
     <ClCompile Include="source\scene\sample_scene.cpp" />
-    <ClCompile Include="source\shader\shader_util.cpp" />
+    <ClCompile Include="source\shader\shader.cpp" />
     <ClCompile Include="source\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="source\ui\textPanel.cpp" />
+    <ClCompile Include="source\ui\ui_context.cpp" />
     <ClCompile Include="source\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_glfw.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_opengl3.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imconfig.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imgui.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imgui_internal.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_rectpack.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_textedit.h" />
+    <ClInclude Include="source\3rdparty\imgui-docking\imstb_truetype.h" />
     <ClInclude Include="source\application\application.h" />
     <ClInclude Include="source\components\camera.h" />
+    <ClInclude Include="source\components\IComponent.h" />
+    <ClInclude Include="source\components\Plane.h" />
     <ClInclude Include="source\render\opengl_context.h" />
+    <ClInclude Include="source\render\OpenGL_FrameBuffer.h" />
+    <ClInclude Include="source\render\OpenGL_VertexIndexBuffer.h" />
+    <ClInclude Include="source\scene\IScene.h" />
     <ClInclude Include="source\scene\sample_scene.h" />
-    <ClInclude Include="source\shader\shader_util.h" />
+    <ClInclude Include="source\shader\shader.h" />
     <ClInclude Include="source\stdafx.h" />
+    <ClInclude Include="source\ui\textPanel.h" />
+    <ClInclude Include="source\ui\ui_context.h" />
     <ClInclude Include="source\window\window.h" />
     <ClInclude Include="source\window\Iwindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="imgui.ini" />
     <None Include="source\shader\shaders\first.frag" />
     <None Include="source\shader\shaders\first.vert" />
   </ItemGroup>
@@ -101,15 +143,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -146,7 +196,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\3rdparty\imgui-docking;$(ProjectDir)source\3rdparty\imgui-docking\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>

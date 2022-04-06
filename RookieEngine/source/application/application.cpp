@@ -7,13 +7,13 @@ Application::GC Application::GC::gc;
 Application::Application(const std::string& app_name)
 {
 	mWindow = std::make_unique<GLWindow>();
-	mWindow->init(1024, 720, app_name);
+	mWindow->init(1600, 900, app_name);
 }
 
 void Application::loop()
 {
-	//while (mWindow->is_running())
-	//{
-	//	mWindow->render();
-	//}
+	while (mWindow->is_running())
+	{
+		mWindow->render();
+	}
 }

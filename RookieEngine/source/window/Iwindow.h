@@ -10,6 +10,12 @@ public:
 
     virtual void on_resize(int width, int height) = 0;
 
+    virtual void on_close() = 0;
+
+    virtual GLFWwindow* get_native_window() = 0;
+
+    virtual void set_native_window(GLFWwindow* window) = 0;
+
     int Width;
     int Height;
     std::string Title;

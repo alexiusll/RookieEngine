@@ -9,3 +9,7 @@
 /RookieEngine/libs/assimp/unit.exp
 /RookieEngine/libs/assimp/unit.lib
 /x64/Debug
+
+# 修改后的忽略项
+/bin/x64
+/bin/intermediates
