@@ -22,3 +22,12 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 
+// 操作系统的函数
+#include <Windows.h>
+
+// 比较重要的头文件
+#include "ui/ConsoleLog.h"
+
+// 自定义宏
+#define DEBUG_LOG(fmt,...) ConsoleLog::Instance().addLog(fmt##"\n",__VA_ARGS__)
+

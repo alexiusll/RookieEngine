@@ -7,7 +7,7 @@ class Application // µ¥ÀýÄ£Ê½
 public:
 	static Application& Instance() { 
 		if (sInstance == nullptr) {
-			sInstance = new Application("114514");
+			sInstance = new Application("RookieEngine");
 		}
 		return *sInstance; 
 	}

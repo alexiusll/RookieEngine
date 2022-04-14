@@ -10,7 +10,7 @@
     <ClCompile Include="source\render\opengl_context.cpp" />
     <ClCompile Include="source\scene\sample_scene.cpp" />
     <ClCompile Include="source\components\Plane.cpp" />
-    <ClCompile Include="source\render\OpenGL_VertexIndexBuffer.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexArray.cpp" />
     <ClCompile Include="source\ui\ui_context.cpp" />
     <ClCompile Include="source\ui\textPanel.cpp" />
     <ClCompile Include="source\3rdparty\imgui-docking\imgui.cpp">
@@ -38,6 +38,11 @@
       <Filter>3rdParty</Filter>
     </ClCompile>
     <ClCompile Include="source\render\OpenGL_FrameBuffer.cpp" />
+    <ClCompile Include="source\ui\ConsoleLog.cpp" />
+    <ClCompile Include="source\ui\SceneHierarchy.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexBuffer.cpp" />
+    <ClCompile Include="source\render\OpenGL_IndexBuffer.cpp" />
+    <ClCompile Include="source\scene\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\components\camera.h" />
@@ -51,7 +56,7 @@
     <ClInclude Include="source\scene\IScene.h" />
     <ClInclude Include="source\components\IComponent.h" />
     <ClInclude Include="source\components\Plane.h" />
-    <ClInclude Include="source\render\OpenGL_VertexIndexBuffer.h" />
+    <ClInclude Include="source\render\OpenGL_VertexArray.h" />
     <ClInclude Include="source\ui\ui_context.h" />
     <ClInclude Include="source\ui\textPanel.h" />
     <ClInclude Include="source\3rdparty\imgui-docking\imconfig.h">
@@ -79,6 +84,11 @@
       <Filter>3rdParty</Filter>
     </ClInclude>
     <ClInclude Include="source\render\OpenGL_FrameBuffer.h" />
+    <ClInclude Include="source\ui\ConsoleLog.h" />
+    <ClInclude Include="source\ui\SceneHierarchy.h" />
+    <ClInclude Include="source\render\OpenGL_VertexBuffer.h" />
+    <ClInclude Include="source\render\OpenGL_IndexBuffer.h" />
+    <ClInclude Include="source\scene\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source\shader\shaders\first.vert" />

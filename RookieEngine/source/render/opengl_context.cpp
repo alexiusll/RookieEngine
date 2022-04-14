@@ -26,6 +26,8 @@ static void on_window_close_callback(GLFWwindow* window)
 	pWindow->on_close();
 }
 
+
+
 bool OpenGL_Context::init(Iwindow* mWindow)
 {
 	this->mWindow = mWindow;
@@ -33,8 +35,8 @@ bool OpenGL_Context::init(Iwindow* mWindow)
 	// glfw: 初始化和配置
 	// ------------------------------
 	glfwInit(); // 初始化GLFW
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // 主版本号(Major)和次版本号(Minor)都设为3。
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); // 使用 opengl 4.6
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // 明确告诉GLFW我们使用的是核心模式(Core-profile)
 
 	// glfwWindowHint(GLFW_DECORATED, GL_FALSE); // 无边框窗口
@@ -60,11 +62,15 @@ bool OpenGL_Context::init(Iwindow* mWindow)
 	glfwSetWindowUserPointer(glfwWindow, mWindow);
 	// --- 回调函数的设置 ---
 	glfwSetFramebufferSizeCallback(glfwWindow, on_window_size_callback); // 窗口调整大小
-	glfwSetCursorPosCallback(glfwWindow, on_cursor_pos_callback); // 鼠标位置
+	// glfwSetCursorPosCallback(glfwWindow, on_cursor_pos_callback); // 鼠标位置
 	glfwSetScrollCallback(glfwWindow, on_scroll_callback); // 滑动
 	glfwSetWindowCloseCallback(glfwWindow, on_window_close_callback); // 窗口关闭
 
-	glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR); // tell GLFW to capture our mouse
+	// glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR); // tell GLFW to capture our mouse
+	glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+
+	// glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+
 	glfwMakeContextCurrent(glfwWindow);
 
 	// 初始化 GLAD
@@ -75,6 +81,14 @@ bool OpenGL_Context::init(Iwindow* mWindow)
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return false;
 	}
+
+	// std::cout << glGetString(GL_VENDOR) << std::endl;
+	// std::cout << glGetString(GL_VERSION) << std::endl;
+
+	DEBUG_LOG("---- OpenGL Info: ----");
+	DEBUG_LOG("  Vendor: %s", glGetString(GL_VENDOR));
+	DEBUG_LOG("  Renderer: %s", glGetString(GL_RENDERER));
+	DEBUG_LOG("  Version: %s", glGetString(GL_VERSION));
 
 	// 配置全局的 opengl 参数
 	// -----------------------------

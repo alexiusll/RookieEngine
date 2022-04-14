@@ -51,7 +51,16 @@ private:
 	std::unique_ptr<UIContext> ui_context;  // UI 上下文
 	std::unique_ptr<TextPanel> textPanel;  // TextPanel
 
-	std::unique_ptr<Sample_Scene> scene; // 场景
+	// std::shared_ptr<Sample_Scene> scene; // 场景
 
 	bool IsRunning;  // 是否在运行
+
+	// 帧率
+	float deltaTime = 0.0f;
+	float lastFrame = 0.0f;
+
+	// 鼠标事件
+	bool firstMouse = true;
+	double lastX = 0;
+	double lastY = 0;
 };

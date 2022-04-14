@@ -3,22 +3,36 @@
 
 #include "imgui.h"
 
-void TextPanel::render(Sample_Scene* scene)
+void TextPanel::render()
 {
-	ImGui::Begin("TextPanel");
-	ImGui::Text("This is some useful text.");
-	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
-	ImGui::ColorPicker3("Color", (float*)&scene->getPlane()->color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
+	// ImGui::Begin("Properties");
+	// ImGui::ColorPicker3("Color", (float*)&scene->getPlane()->color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
 	// ImGui::ColorEdit3("clear color", (float*)&color); // Edit 3 floats representing a color
+	// ImGui::End();
 
-	ImGui::End();
+	//ImGui::Begin("Scene Hierarchy"); 
+	//ImGui::Text("Hello from another window!");
+	//ImGui::End();
 
-	ImGui::Begin("Another Window 2"); 
-	ImGui::Text("Hello from another window!");
-	ImGui::End();
+	ImGui::ShowDemoWindow();
 
-	ImGui::Begin("Another Window 3");
-	ImGui::Text("Hello from another window!");
-	ImGui::End();
+    if (ImGui::BeginMainMenuBar())
+    {
+        if (ImGui::BeginMenu("File"))
+        {
+            // ShowExampleMenuFile();
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Edit"))
+        {
+            if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
+            if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+            ImGui::Separator();
+            if (ImGui::MenuItem("Cut", "CTRL+X")) {}
+            if (ImGui::MenuItem("Copy", "CTRL+C")) {}
+            if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
 }

@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\scene\SceneManager.cpp" />
+    <ClCompile Include="source\render\OpenGL_IndexBuffer.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexBuffer.cpp" />
+    <ClCompile Include="source\ui\SceneHierarchy.cpp" />
+    <ClCompile Include="source\ui\ConsoleLog.cpp" />
     <ClCompile Include="source\3rdparty\glad.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -49,7 +54,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\render\opengl_context.cpp" />
     <ClCompile Include="source\render\OpenGL_FrameBuffer.cpp" />
-    <ClCompile Include="source\render\OpenGL_VertexIndexBuffer.cpp" />
+    <ClCompile Include="source\render\OpenGL_VertexArray.cpp" />
     <ClCompile Include="source\scene\sample_scene.cpp" />
     <ClCompile Include="source\shader\shader.cpp" />
     <ClCompile Include="source\stdafx.cpp">
@@ -60,6 +65,11 @@
     <ClCompile Include="source\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\scene\SceneManager.h" />
+    <ClInclude Include="source\render\OpenGL_IndexBuffer.h" />
+    <ClInclude Include="source\render\OpenGL_VertexBuffer.h" />
+    <ClInclude Include="source\ui\SceneHierarchy.h" />
+    <ClInclude Include="source\ui\ConsoleLog.h" />
     <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_glfw.h" />
     <ClInclude Include="source\3rdparty\imgui-docking\backends\imgui_impl_opengl3.h" />
     <ClInclude Include="source\3rdparty\imgui-docking\imconfig.h" />
@@ -74,7 +84,7 @@
     <ClInclude Include="source\components\Plane.h" />
     <ClInclude Include="source\render\opengl_context.h" />
     <ClInclude Include="source\render\OpenGL_FrameBuffer.h" />
-    <ClInclude Include="source\render\OpenGL_VertexIndexBuffer.h" />
+    <ClInclude Include="source\render\OpenGL_VertexArray.h" />
     <ClInclude Include="source\scene\IScene.h" />
     <ClInclude Include="source\scene\sample_scene.h" />
     <ClInclude Include="source\shader\shader.h" />
@@ -197,7 +207,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)source;$(ProjectDir)source\3rdparty\imgui-docking;$(ProjectDir)source\3rdparty\imgui-docking\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

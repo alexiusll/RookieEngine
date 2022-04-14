@@ -2,38 +2,36 @@
 
 #include "IComponent.h"
 #include "shader/shader.h"
-#include "render/OpenGL_VertexIndexBuffer.h"
+#include "render/OpenGL_VertexArray.h"
+#include "camera.h"
 
 class Plane : public IComponent {
 public:
+	Plane();
+	~Plane();
+
 	void init();
-
-	void create_buffers();
-
-	void delete_buffers();
-
-	void render();
-
-	void bind();
-
-	void unbind();
+	void render() override;
+	void DrawUi() override;
 
 	/* 更新 shader */
-	void update(Shader* shader);
-
-	void setVertices(std::vector<float>& Vertices, std::vector<unsigned int>& mVertexIndices) {
-		this->mVertices = Vertices;
-		this->mVertexIndices = mVertexIndices;
-	}
+	void updateShader();
+	void create_buffers(std::vector<float>& Vertices, std::vector<unsigned int>& mVertexIndices);
 
 	// 颜色
 	glm::vec3 color = glm::vec3(0.0f, 0.5f, 0.3f);
 
 private:
-	// Buffers manager
-	std::unique_ptr<OpenGL_VertexIndexBuffer> openGL_VertexIndexBuffer;
+	void bind();
+	void unbind();
+	void delete_buffers();
 
-	// Vertices and indices
-	std::vector<float> mVertices;
-	std::vector<unsigned int> mVertexIndices;
+	// transform
+	TransformComponent transform;
+
+	// Buffers manager
+	std::unique_ptr<OpenGL_VertexArray> openGL_VertexArray;
+
+	// 着色器
+	std::unique_ptr<Shader> mShader; 
 };

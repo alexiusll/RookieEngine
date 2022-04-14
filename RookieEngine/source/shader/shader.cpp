@@ -28,8 +28,8 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geo
 		std::string vPath(SHADER_PATH + vertexPath);
 		std::string fPath(SHADER_PATH + fragmentPath);
 
-		std::cout << vPath << std::endl;
-		std::cout << fPath << std::endl;
+		// std::cout << vPath << std::endl;
+		// std::cout << fPath << std::endl;
 
 		// 打开文件
 		vShaderFile.open(vPath);

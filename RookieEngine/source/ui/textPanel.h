@@ -6,6 +6,6 @@ class TextPanel
 public:
     TextPanel()
     {}
-    void render(Sample_Scene* scene);
+    void render();
 private:
 };
