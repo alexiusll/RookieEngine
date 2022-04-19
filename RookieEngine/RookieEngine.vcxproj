@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\shader\Material.cpp" />
     <ClCompile Include="source\scene\SceneManager.cpp" />
     <ClCompile Include="source\render\OpenGL_IndexBuffer.cpp" />
     <ClCompile Include="source\render\OpenGL_VertexBuffer.cpp" />
@@ -65,6 +66,7 @@
     <ClCompile Include="source\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\shader\Material.h" />
     <ClInclude Include="source\scene\SceneManager.h" />
     <ClInclude Include="source\render\OpenGL_IndexBuffer.h" />
     <ClInclude Include="source\render\OpenGL_VertexBuffer.h" />

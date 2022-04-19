@@ -43,6 +43,7 @@
     <ClCompile Include="source\render\OpenGL_VertexBuffer.cpp" />
     <ClCompile Include="source\render\OpenGL_IndexBuffer.cpp" />
     <ClCompile Include="source\scene\SceneManager.cpp" />
+    <ClCompile Include="source\shader\Material.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\components\camera.h" />
@@ -89,6 +90,7 @@
     <ClInclude Include="source\render\OpenGL_VertexBuffer.h" />
     <ClInclude Include="source\render\OpenGL_IndexBuffer.h" />
     <ClInclude Include="source\scene\SceneManager.h" />
+    <ClInclude Include="source\shader\Material.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source\shader\shaders\first.vert" />

@@ -10,6 +10,8 @@
 
 #include "scene/SceneManager.h"
 
+#include "shader/Material.h"
+
 
 Plane::Plane()
 {
@@ -60,10 +62,16 @@ void Plane::render()
 	openGL_VertexArray->draw();
 }
 
+MaterialLayout materialLayout({
+	std::make_shared<MaterialElement<glm::vec3>>("color", MaterialDataType::Vec3, glm::vec3(0.5,0.5,0.5)),
+});
+
 void Plane::DrawUi()
 {
 
 	ImGui::ColorPicker3("Color", (float*)&color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
+
+	materialLayout.GetElements()[0]->drawUi();
 
 	if (ImGui::TreeNodeEx("transform" , ImGuiTreeNodeFlags_DefaultOpen)) {
 

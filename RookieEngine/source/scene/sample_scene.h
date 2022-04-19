@@ -5,6 +5,8 @@
 #include "IScene.h"
 #include "render/OpenGL_FrameBuffer.h"
 
+#include "shader/Material.h"
+
 static std::vector<float> _vertices = {
 	0.5f, 0.5f, 0.0f,   // срио╫г
 	0.5f, -0.5f, 0.0f,  // сроб╫г
