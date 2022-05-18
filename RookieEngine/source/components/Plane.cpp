@@ -27,8 +27,17 @@ void Plane::init()
 {
 	name = "Plane";
 	isRender = true;
-	// 初始化着色器
-	mShader = std::make_unique<Shader>("first.vert", "first.frag");
+
+	// 初始化 着色器
+	mShader = std::make_shared<Shader>("first.vert", "first.frag");
+	material.SetShader(mShader);
+
+	// 初始化 材质
+	auto temp = {
+		std::make_shared<MaterialElement<glm::vec3>>("color", MaterialDataType::Color, glm::vec3(0.5,0.5,0.5)),
+	};
+	std::shared_ptr<MaterialLayout> materialLayout = std::make_shared<MaterialLayout>(temp);
+	material.SetMaterialLayout(materialLayout);
 
 	openGL_VertexArray = std::make_unique<OpenGL_VertexArray>();
 }
@@ -63,15 +72,16 @@ void Plane::render()
 }
 
 MaterialLayout materialLayout({
-	std::make_shared<MaterialElement<glm::vec3>>("color", MaterialDataType::Vec3, glm::vec3(0.5,0.5,0.5)),
+	std::make_shared<MaterialElement<glm::vec3>>("color", MaterialDataType::Color, glm::vec3(0.5,0.5,0.5)),
 });
 
 void Plane::DrawUi()
 {
 
-	ImGui::ColorPicker3("Color", (float*)&color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
+	// ImGui::ColorPicker3("Color", (float*)&color, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
+	// materialLayout.GetElements()[0]->drawUi();
 
-	materialLayout.GetElements()[0]->drawUi();
+	material.drawUi();
 
 	if (ImGui::TreeNodeEx("transform" , ImGuiTreeNodeFlags_DefaultOpen)) {
 
@@ -101,7 +111,7 @@ void Plane::unbind()
 void Plane::updateShader()
 {
 	// 设置 plane 色彩
-	mShader->setVec3("color", color);
+	// mShader->setVec3("color", color);
 
 	// --- mvp 矩阵 ---
 	const glm::vec2 WindowSize = SceneManager::Instance().getWindowSize();

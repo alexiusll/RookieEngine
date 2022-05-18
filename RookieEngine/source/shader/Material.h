@@ -4,12 +4,13 @@
 
 enum class MaterialDataType // shader data 类型
 {
-	None = 0, Vec3
+	None = 0, Color
 };
 
 class MaterialElementBase {
 public:
 	virtual void drawUi() = 0;
+	virtual auto getValue() = 0;
 };
 
 template <typename T>
@@ -20,9 +21,13 @@ public:
 	MaterialElement(const std::string& name, MaterialDataType type, T value): mName(name), mType(type), mValue(value) {}
 	void drawUi() override {
 		// 绘制UI界面
-		if (mType == MaterialDataType::Vec3) {
-			ImGui::ColorPicker3(mName.c_str(), (float*)&mValue, 0);
+		if (mType == MaterialDataType::Color) {
+			// ImGui::ColorPicker3(mName.c_str(), (float*)&mValue, 0);
+			ImGui::ColorPicker3(mName.c_str(), (float*)&mValue, ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_DisplayRGB);
 		}
+	}
+	T getValue() override {
+		return mValue;
 	}
 private:
 	std::string mName;
@@ -56,10 +61,21 @@ public:
 		mShader = shader;
 	}
 
+	void SetMaterialLayout(std::shared_ptr<MaterialLayout> &Layout) {
+		this->m_Layout = Layout;
+	}
+
 	std::shared_ptr<Shader> GetShader() const
 	{
 		return mShader;
 	}
+
+	std::shared_ptr<MaterialLayout> GetMaterialLayout() const
+	{
+		return m_Layout;
+	}
+
+	void updateShader() const;
 
 	// 绘制 Ui界面
 	void drawUi();
@@ -68,5 +84,5 @@ private:
 	// 着色器
 	std::shared_ptr<Shader> mShader;
 	// layout
-	MaterialLayout m_Layout;
+	std::shared_ptr<MaterialLayout> m_Layout;
 };

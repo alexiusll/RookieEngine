@@ -5,6 +5,8 @@
 #include "render/OpenGL_VertexArray.h"
 #include "camera.h"
 
+#include "shader/Material.h"
+
 class Plane : public IComponent {
 public:
 	Plane();
@@ -19,7 +21,7 @@ public:
 	void create_buffers(std::vector<float>& Vertices, std::vector<unsigned int>& mVertexIndices);
 
 	// 颜色
-	glm::vec3 color = glm::vec3(0.0f, 0.5f, 0.3f);
+	// glm::vec3 color = glm::vec3(0.0f, 0.5f, 0.3f);
 
 private:
 	void bind();
@@ -32,6 +34,9 @@ private:
 	// Buffers manager
 	std::unique_ptr<OpenGL_VertexArray> openGL_VertexArray;
 
+	// 材质层
+	Material material;
+
 	// 着色器
-	std::unique_ptr<Shader> mShader; 
+	std::shared_ptr<Shader> mShader; 
 };
